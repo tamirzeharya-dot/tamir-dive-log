@@ -1,5 +1,5 @@
-const CACHE='tamir-dive-launcher-v2';
-const ASSETS=['./','./index.html','./manifest.json','./icon-192.png?v=2','./icon-512.png?v=2'];
+const CACHE='tamir-dive-launcher-v3';
+const ASSETS=['./?v=3','./index.html?v=3','./manifest.json?v=3','./icon-192.png?v=2','./icon-512.png?v=2'];
 self.addEventListener('install',e=>{
   self.skipWaiting();
   e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)));
