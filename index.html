@@ -12,30 +12,26 @@
     *{box-sizing:border-box}
     html,body{margin:0;min-height:100%;font-family:Arial,sans-serif;background:#062645;color:#fff}
     body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-    .card{width:min(92vw,420px);text-align:center;background:#0a355d;border:1px solid rgba(255,255,255,.16);
-      border-radius:28px;padding:34px 24px;box-shadow:0 20px 60px rgba(0,0,0,.32)}
+    .card{width:min(92vw,420px);text-align:center;background:#0a355d;border:1px solid rgba(255,255,255,.16);border-radius:28px;padding:34px 24px;box-shadow:0 20px 60px rgba(0,0,0,.32)}
     img{width:116px;height:116px;border-radius:26px;margin-bottom:18px}
     h1{font-size:26px;margin:0 0 10px}
     p{line-height:1.6;color:#d8eaff;margin:0 0 24px}
     a{display:block;text-decoration:none;background:#fff;color:#08345d;font-weight:700;padding:16px 20px;border-radius:16px}
-    .small{font-size:13px;margin-top:15px;opacity:.8}
+    .small{font-size:13px;margin-top:15px;opacity:.8;line-height:1.5}
   </style>
 </head>
 <body>
   <main class="card">
     <img src="icon-192.png" alt="אייקון יומן הצלילה">
     <h1>יומן הצלילה של תמיר</h1>
-    <p>פותח את יומן הצלילה...</p>
+    <p>התקן את הקיצור מהעמוד הזה כדי לשמור את האייקון המותאם.</p>
     <a id="openApp" href="https://script.google.com/macros/s/AKfycbxfooe7VKN_VDLoyZY1QFpl_lXM7JVfatCSS3a_AF7hYrAus2uoxCpt1CVCRocwfw8l/exec">פתח את יומן הצלילה</a>
-    <div class="small">אם המעבר האוטומטי לא מתבצע, לחץ על הכפתור.</div>
+    <div class="small">אחרי ההתקנה, פתח את האפליקציה מהאייקון במסך הבית ולחץ על הכפתור כדי להיכנס ליומן.</div>
   </main>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
     }
-    setTimeout(() => {
-      window.location.href = "https://script.google.com/macros/s/AKfycbxfooe7VKN_VDLoyZY1QFpl_lXM7JVfatCSS3a_AF7hYrAus2uoxCpt1CVCRocwfw8l/exec";
-    }, 900);
   </script>
 </body>
 </html>
