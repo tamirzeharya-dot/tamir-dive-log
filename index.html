@@ -24,18 +24,26 @@
   <main class="card">
     <img src="icon-192.png?v=2" alt="אייקון יומן הצלילה">
     <h1>יומן הצלילה של תמיר</h1>
-    <p>פותח את יומן הצלילה...</p>
+    <p id="statusText">התקן את האפליקציה מהדפדפן, או פתח את היומן מהכפתור.</p>
     <a id="openApp" href="https://script.google.com/macros/s/AKfycbxfooe7VKN_VDLoyZY1QFpl_lXM7JVfatCSS3a_AF7hYrAus2uoxCpt1CVCRocwfw8l/exec">פתח את יומן הצלילה</a>
-    <div class="small">אם המעבר האוטומטי לא מתבצע, לחץ על הכפתור.</div>
+    <div class="small" id="helperText">לאחר ההתקנה, פתיחה מהאייקון תכניס אותך אוטומטית ליומן.</div>
   </main>
   <script>
     const APP_URL='https://script.google.com/macros/s/AKfycbxfooe7VKN_VDLoyZY1QFpl_lXM7JVfatCSS3a_AF7hYrAus2uoxCpt1CVCRocwfw8l/exec';
+
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
     }
-    window.addEventListener('load', () => {
-      setTimeout(() => window.location.replace(APP_URL), 700);
-    });
+
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+    if (isStandalone) {
+      document.getElementById('statusText').textContent = 'פותח את יומן הצלילה...';
+      document.getElementById('helperText').textContent = 'אם המעבר האוטומטי לא מתבצע, לחץ על הכפתור.';
+      window.addEventListener('load', () => {
+        setTimeout(() => window.location.replace(APP_URL), 400);
+      });
+    }
   </script>
 </body>
 </html>
