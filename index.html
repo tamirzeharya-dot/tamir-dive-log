@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#062645">
   <title>יומן הצלילה של תמיר</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=2">
+  <link rel="apple-touch-icon" href="icon-192.png?v=2">
   <style>
     *{box-sizing:border-box}
     html,body{margin:0;min-height:100%;font-family:Arial,sans-serif;background:#062645;color:#fff}
@@ -22,16 +22,20 @@
 </head>
 <body>
   <main class="card">
-    <img src="icon-192.png" alt="אייקון יומן הצלילה">
+    <img src="icon-192.png?v=2" alt="אייקון יומן הצלילה">
     <h1>יומן הצלילה של תמיר</h1>
-    <p>התקן את הקיצור מהעמוד הזה כדי לשמור את האייקון המותאם.</p>
+    <p>פותח את יומן הצלילה...</p>
     <a id="openApp" href="https://script.google.com/macros/s/AKfycbxfooe7VKN_VDLoyZY1QFpl_lXM7JVfatCSS3a_AF7hYrAus2uoxCpt1CVCRocwfw8l/exec">פתח את יומן הצלילה</a>
-    <div class="small">אחרי ההתקנה, פתח את האפליקציה מהאייקון במסך הבית ולחץ על הכפתור כדי להיכנס ליומן.</div>
+    <div class="small">אם המעבר האוטומטי לא מתבצע, לחץ על הכפתור.</div>
   </main>
   <script>
+    const APP_URL='https://script.google.com/macros/s/AKfycbxfooe7VKN_VDLoyZY1QFpl_lXM7JVfatCSS3a_AF7hYrAus2uoxCpt1CVCRocwfw8l/exec';
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
     }
+    window.addEventListener('load', () => {
+      setTimeout(() => window.location.replace(APP_URL), 700);
+    });
   </script>
 </body>
 </html>
